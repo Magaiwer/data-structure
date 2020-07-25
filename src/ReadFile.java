@@ -1,13 +1,13 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
 
 /**
  * @author Magaiver Santos
  */
 public class ReadFile {
     public static void main(String[] args) {
-
         System.out.println("Informe o nome de arquivo texto:");
         String nome = "zips.txt";
 
