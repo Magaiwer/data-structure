@@ -6,24 +6,24 @@ package sort;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] vector = {1, 15, 12, 14, 11, 10, 3, 4, 5, 8};
+        int[] vector = {19, 1, 9, 7, 3, 10, 13, 15, 8, 12};
         print(vector);
         bubbleSort(vector);
         print(vector);
     }
-    int[] vector = {1, 15, 12, 14, 11, 10, 3, 4, 5, 8};
+    //int[] vector = {1, 15, 12, 14, 11, 10, 3, 4, 5, 8};
     private static void bubbleSort(int[] arr) {
-        int n = arr.length; //Tamnaho do array
+        /*int n = arr.length; //Tamnaho do array
         for (int i = 0; i < n - 1; i++)
             for (int j = 0; j < n - i - 1; j++)  // percorre o vetor agrupando pares da esquerda para a direita
                 if (arr[j] > arr[j + 1]) { // testa se o valor na posição da esquerda é maior que o da direita
                     int temp = arr[j];  // armazena o valor da posição da esquerda em uma variavel temporaria
                     arr[j] = arr[j + 1]; // passa o valor da direita para a posição da esquerda
                     arr[j + 1] = temp;   // passa o valor que estava na esquerda para a direita
-                }
+                }*/
 
 
-/*        int count = 0;
+        int count = 0;
         while (count < 3) {
             for (int i = 0; i < arr.length - 1; i++) {
                 if (arr[i] > arr[i + 1]) {
@@ -34,7 +34,7 @@ public class BubbleSort {
                 }
             }
             count++;
-        }*/
+        }
     }
 
     private static void print(int[] arr) {

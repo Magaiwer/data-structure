@@ -1,7 +1,5 @@
 package staticstructure.base.generic;
 
-import staticstructure.vector.Vector;
-
 import java.lang.reflect.Array;
 
 /**
@@ -17,7 +15,7 @@ public class VectorGeneric<T> {
     }
 
     public VectorGeneric(int capacity, Class<T> type) {
-        elements = (T[])  Array.newInstance(type, capacity);
+        elements = (T[]) Array.newInstance(type, capacity);
         this.size = 0;
     }
 
@@ -58,8 +56,8 @@ public class VectorGeneric<T> {
             return false;
         }
 
-        for (int i = position; i < this.size-1 ; i++) {
-            this.elements[i] = this.elements[i+1];
+        for (int i = position; i < this.size - 1; i++) {
+            this.elements[i] = this.elements[i + 1];
         }
 /*
         SAME WAY
@@ -72,7 +70,7 @@ public class VectorGeneric<T> {
 
     public boolean remove(T element) {
         int index = indexOf(element);
-        if (index >= 0 ) {
+        if (index >= 0) {
             return remove(index);
         }
         return false;
@@ -84,7 +82,7 @@ public class VectorGeneric<T> {
                 return i;
             }
         }
-        return - 1;
+        return -1;
     }
 
     public void removeAll() {

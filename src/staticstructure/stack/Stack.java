@@ -7,10 +7,6 @@ import staticstructure.base.generic.VectorGeneric;
  */
 public class Stack<T> extends VectorGeneric<T> {
 
-    public Stack(int capacity) {
-        super(capacity);
-    }
-
     public Stack() {
         super();
     }
