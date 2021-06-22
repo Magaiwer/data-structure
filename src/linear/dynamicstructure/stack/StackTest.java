@@ -1,4 +1,4 @@
-package staticstructure.stack;
+package linear.dynamicstructure.stack;
 
 /**
  * @author Magaiver Santos

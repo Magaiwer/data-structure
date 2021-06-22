@@ -1,29 +1,18 @@
-package staticstructure.base.generic;
-
-import java.lang.reflect.Array;
+package linear.staticstructure.vector;
 
 /**
  * @author Magaiver Santos
  */
-public class VectorGeneric<T> {
-    protected T[] elements;
-    protected int size;
+public class Vector {
+    private String[] elements;
+    private int size;
 
-    public VectorGeneric(int capacity) {
-        elements = (T[]) new Object[capacity];
+    public Vector(int capacity) {
+        elements = new String[capacity];
         this.size = 0;
     }
 
-    public VectorGeneric(int capacity, Class<T> type) {
-        elements = (T[]) Array.newInstance(type, capacity);
-        this.size = 0;
-    }
-
-    public VectorGeneric() {
-        this(10);
-    }
-
-    protected boolean add(T element) {
+    public boolean add(String element) {
         increaseSize();
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
@@ -33,7 +22,7 @@ public class VectorGeneric<T> {
         return false;
     }
 
-    protected boolean add(int position, T element) {
+    public boolean add(int position, String element) {
         increaseSize();
         if (!(position >= 0 && position < this.size)) {
             return false;
@@ -56,8 +45,8 @@ public class VectorGeneric<T> {
             return false;
         }
 
-        for (int i = position; i < this.size - 1; i++) {
-            this.elements[i] = this.elements[i + 1];
+        for (int i = position; i < this.size-1 ; i++) {
+            this.elements[i] = this.elements[i+1];
         }
 /*
         SAME WAY
@@ -68,41 +57,23 @@ public class VectorGeneric<T> {
         return true;
     }
 
-    public boolean remove(T element) {
+    public boolean remove(String element) {
         int index = indexOf(element);
-        if (index >= 0) {
+        if (index >= 0 ) {
             return remove(index);
         }
         return false;
     }
 
-    public int lastIndexOf(T element) {
-        for (int i = this.size - 1; i >= 0; i--) {
-            if (this.elements[i].equals(element)) {
-                return i;
-            }
-        }
-        return -1;
-    }
 
-    public void removeAll() {
-        for (int i = 0; i < this.elements.length; i++) {
-            this.elements[i] = null;
-        }
-
-        // OR
-        //Arrays.fill(this.elements, null);
-        this.size = 0;
-    }
-
-    public T search(int position) {
+    public String search(int position) {
         if (!(position >= 0 && position < this.size)) {
             return null;
         }
         return elements[position];
     }
 
-    public boolean contains(T element) {
+    public boolean contains(String element) {
         for (int i = 0; i < this.size; i++) {
             if (this.elements[i].equals(element)) {
                 return true;
@@ -118,7 +89,7 @@ public class VectorGeneric<T> {
         return this.size == 0;
     }
 
-    public int indexOf(T element) {
+    public int indexOf(String element) {
         for (int i = 0; i < this.size; i++) {
             if (this.elements[i].equals(element)) {
                 return i;
@@ -131,9 +102,9 @@ public class VectorGeneric<T> {
         return this.size;
     }
 
-    protected void increaseSize() {
+    private void increaseSize() {
         if (this.size == this.elements.length) {
-            T[] elementsNew = (T[]) new Object[this.elements.length * 2];
+            String[] elementsNew = new String[this.elements.length * 2];
 
             for (int i = 0; i < this.elements.length; i++) {
                 elementsNew[i] = this.elements[i];

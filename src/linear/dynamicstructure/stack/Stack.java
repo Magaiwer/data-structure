@@ -1,6 +1,6 @@
-package staticstructure.stack;
+package linear.dynamicstructure.stack;
 
-import staticstructure.base.generic.VectorGeneric;
+import linear.staticstructure.base.generic.VectorGeneric;
 
 /**
  * @author Magaiver Santos

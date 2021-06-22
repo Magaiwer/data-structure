@@ -1,18 +1,29 @@
-package staticstructure.vector;
+package linear.staticstructure.base.generic;
+
+import java.lang.reflect.Array;
 
 /**
  * @author Magaiver Santos
  */
-public class Vector {
-    private String[] elements;
-    private int size;
+public class VectorGeneric<T> {
+    protected T[] elements;
+    protected int size;
 
-    public Vector(int capacity) {
-        elements = new String[capacity];
+    public VectorGeneric(int capacity) {
+        elements = (T[]) new Object[capacity];
         this.size = 0;
     }
 
-    public boolean add(String element) {
+    public VectorGeneric(int capacity, Class<T> type) {
+        elements = (T[]) Array.newInstance(type, capacity);
+        this.size = 0;
+    }
+
+    public VectorGeneric() {
+        this(10);
+    }
+
+    protected boolean add(T element) {
         increaseSize();
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
@@ -22,9 +33,9 @@ public class Vector {
         return false;
     }
 
-    public boolean add(int position, String element) {
+    protected boolean add(int position, T element) {
         increaseSize();
-        if (!(position >= 0 && position < this.size)) {
+        if (position < 0 && position > this.size) {
             return false;
         }
         for (int i = this.size - 1; i >= position; i--) {
@@ -45,8 +56,8 @@ public class Vector {
             return false;
         }
 
-        for (int i = position; i < this.size-1 ; i++) {
-            this.elements[i] = this.elements[i+1];
+        for (int i = position; i < this.size - 1; i++) {
+            this.elements[i] = this.elements[i + 1];
         }
 /*
         SAME WAY
@@ -57,23 +68,41 @@ public class Vector {
         return true;
     }
 
-    public boolean remove(String element) {
+    public boolean remove(T element) {
         int index = indexOf(element);
-        if (index >= 0 ) {
+        if (index >= 0) {
             return remove(index);
         }
         return false;
     }
 
+    public int lastIndexOf(T element) {
+        for (int i = this.size - 1; i >= 0; i--) {
+            if (this.elements[i].equals(element)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
-    public String search(int position) {
+    public void removeAll() {
+        for (int i = 0; i < this.elements.length; i++) {
+            this.elements[i] = null;
+        }
+
+        // OR
+        //Arrays.fill(this.elements, null);
+        this.size = 0;
+    }
+
+    public T search(int position) {
         if (!(position >= 0 && position < this.size)) {
             return null;
         }
         return elements[position];
     }
 
-    public boolean contains(String element) {
+    public boolean contains(T element) {
         for (int i = 0; i < this.size; i++) {
             if (this.elements[i].equals(element)) {
                 return true;
@@ -89,7 +118,7 @@ public class Vector {
         return this.size == 0;
     }
 
-    public int indexOf(String element) {
+    public int indexOf(T element) {
         for (int i = 0; i < this.size; i++) {
             if (this.elements[i].equals(element)) {
                 return i;
@@ -102,9 +131,9 @@ public class Vector {
         return this.size;
     }
 
-    private void increaseSize() {
+    protected void increaseSize() {
         if (this.size == this.elements.length) {
-            String[] elementsNew = new String[this.elements.length * 2];
+            T[] elementsNew = (T[]) new Object[this.elements.length * 2];
 
             for (int i = 0; i < this.elements.length; i++) {
                 elementsNew[i] = this.elements[i];
