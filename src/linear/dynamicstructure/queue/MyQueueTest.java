@@ -1,4 +1,7 @@
-package staticstructure.queue;
+package linear.dynamicstructure.queue;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @author Magaiver Santos
@@ -6,8 +9,7 @@ package staticstructure.queue;
 public class MyQueueTest {
 
     public static void main(String[] args) {
-        MyQueue<Car> driveTrue = new MyQueue<>();
-
+        QueueCircular<Car> driveTrue = new QueueCircular<>(5);
         driveTrue.enqueue(new Car("BMW", "IMR-3470"));
         driveTrue.enqueue(new Car("Cadillac", "IVY-8094"));
         driveTrue.enqueue(new Car("Hyundai", "IOV-5236"));
@@ -21,16 +23,17 @@ public class MyQueueTest {
         System.out.println("                 ");
         System.out.println("Próximo a ser atendido ---> " + driveTrue.peek());
         System.out.println("                 ");
-        System.out.println("Atender o veiculo ---> " + driveTrue.dequeue());
+        System.out.println("Veiculo atendido---> " + driveTrue.dequeue());
         System.out.println("                 ");
-        System.out.println("Quantidade de veiculos a ser atendido ---> " + driveTrue.getSize());
+        System.out.println("Reorganização dos carros na fila ---> " + driveTrue.toString());
         System.out.println("                 ");
         System.out.println("Próximo a ser atendido ---> " + driveTrue.peek());
         System.out.println("                 ");
+        System.out.println("Veiculo atendido---> " + driveTrue.dequeue());
+        System.out.println("                 ");
+        System.out.println("Reorganização dos carros na fila ---> " + driveTrue.toString());
         Car car = new Car("Ferrari", "ABC-1234");
         driveTrue.enqueue(car);
-        System.out.println("Novo veiculo na fila ---> " + driveTrue.toString());
-        System.out.println("                 ");
 
 
     }

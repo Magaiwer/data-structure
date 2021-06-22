@@ -1,6 +1,6 @@
-package staticstructure.queue;
+package linear.dynamicstructure.queue;
 
-import staticstructure.base.generic.VectorGeneric;
+import linear.staticstructure.base.generic.VectorGeneric;
 
 import java.util.Queue;
 
@@ -28,7 +28,7 @@ public class MyQueue<T> extends VectorGeneric<T> {
         if (this.isEmpty()) {
             return null;
         }
-        // retorna o elemento do topo se a fila tiver vazia retorna null
+        // retorna o elemento do inicio, se a fila tiver vazia retorna null
         return this.elements[0];
     }
 
@@ -37,7 +37,7 @@ public class MyQueue<T> extends VectorGeneric<T> {
         if (this.isEmpty()) {
             return null;
         }
-        // sempre vai desenfileirar o elemento que está no top
+        // sempre vai desenfileirar o elemento que está no inicio
         T elementToRemove = this.elements[POS];
         // remove o elemento
         this.remove(POS);
