@@ -1,6 +1,7 @@
 package recursion;
 
-import staticstructure.stack.Stack;
+
+import linear.dynamicstructure.stack.Stack;
 
 /**
  * @author Magaiver Santos
